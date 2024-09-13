@@ -44,8 +44,7 @@
 </html>
  -->
 
-
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -76,32 +75,34 @@
     </form>
 
     <script>
-        // JavaScript to capture form data and send it to Freshworks CRM
-        document.getElementById("crm-contact-form").addEventListener("submit", function(event){
+        // Handle form submission
+        document.getElementById("crm-contact-form").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent actual form submission
 
-            // Create the new account object
+            // Retrieve input values
+            var firstName = document.getElementById("first_name_input").value;
+            var lastName = document.getElementById("last_name_input").value;
+            var accountName = document.getElementById("account_name_input").value;
+            var email = document.getElementById("email_input").value;
+            var mobile = document.getElementById("mobile_input").value;
+
+            // Prepare account data for Freshworks CRM
             var new_account = {
-                name: document.getElementById("account_name_input").value
+                "name": accountName
             };
 
-            // Capture email as the identifier
-            var identifier = document.getElementById("email_input").value;
+            // Identify user by email and send data to Freshworks CRM
+            fwcrm.identify(email, new_account);
 
-            // Contact information
-            var new_contact = {
-                first_name: document.getElementById("first_name_input").value,
-                last_name: document.getElementById("last_name_input").value,
-                mobile: document.getElementById("mobile_input").value,
-                email: identifier,
-                account: new_account
-            };
+            // Log form data to console for debugging
+            console.log("First Name: " + firstName);
+            console.log("Last Name: " + lastName);
+            console.log("Account Name: " + accountName);
+            console.log("Email: " + email);
+            console.log("Mobile: " + mobile);
 
-            // Log the contact and account details (optional for testing)
-            console.log(new_contact);
-
-            // Send the contact data to Freshworks CRM
-            fwcrm.identify(identifier, new_contact);
+            // Optionally, you can show a message or redirect the user
+            alert('Form submitted and account created in Freshworks CRM!');
         });
     </script>
 
