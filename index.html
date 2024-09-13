@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,6 +37,71 @@
             console.log("Account Name: " + document.getElementById("account_name_input").value);
             console.log("Email: " + document.getElementById("email_input").value);
             console.log("Mobile: " + document.getElementById("mobile_input").value);
+        });
+    </script>
+
+</body>
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Contact Form</title>
+    <script src='//in.fw-cdn.com/31719983/876676.js' chat='true'></script>
+</head>
+<body>
+
+    <h2>Contact Form</h2>
+    <form id="crm-contact-form" name="crm_contact_form" method="POST">
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name_input" name="first_name" required><br><br>
+
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name_input" name="last_name" required><br><br>
+
+        <label for="account_name">Account Name:</label><br>
+        <input type="text" id="account_name_input" name="account_name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email_input" name="email" required><br><br>
+
+        <label for="mobile">Mobile:</label><br>
+        <input type="tel" id="mobile_input" name="mobile" pattern="[0-9]{10}" required><br><br>
+
+        <input type="submit" id="submit_button" value="Submit">
+    </form>
+
+    <script>
+        // JavaScript to capture form data and send it to Freshworks CRM
+        document.getElementById("crm-contact-form").addEventListener("submit", function(event){
+            event.preventDefault(); // Prevent actual form submission
+
+            // Create the new account object
+            var new_account = {
+                name: document.getElementById("account_name_input").value
+            };
+
+            // Capture email as the identifier
+            var identifier = document.getElementById("email_input").value;
+
+            // Contact information
+            var new_contact = {
+                first_name: document.getElementById("first_name_input").value,
+                last_name: document.getElementById("last_name_input").value,
+                mobile: document.getElementById("mobile_input").value,
+                email: identifier,
+                account: new_account
+            };
+
+            // Log the contact and account details (optional for testing)
+            console.log(new_contact);
+
+            // Send the contact data to Freshworks CRM
+            fwcrm.identify(identifier, new_contact);
         });
     </script>
 
