@@ -74,25 +74,26 @@
         <input type="submit" id="submit_button" value="Submit">
     </form>
 
-    <script>
+<!--     <script>
         // Handle form submission
         document.getElementById("crm-contact-form").addEventListener("submit", function(event) {
             event.preventDefault(); // Prevent actual form submission
 
             // Retrieve input values
-            var firstName = document.getElementById("first_name_input").value;
-            var lastName = document.getElementById("last_name_input").value;
-            var accountName = document.getElementById("account_name_input").value;
-            var email = document.getElementById("email_input").value;
-            var mobile = document.getElementById("mobile_input").value;
+            // var firstName = document.getElementById("first_name_input").value;
+            // var lastName = document.getElementById("last_name_input").value;
+            // var accountName = document.getElementById("account_name_input").value;
+            // var email = document.getElementById("email_input").value;
+            // var mobile = document.getElementById("mobile_input").value;
 
             // Prepare account data for Freshworks CRM
             var new_account = {
-                "name": accountName
+                "name": document.getElementById("account_name_input").value;
             };
 
             // Identify user by email and send data to Freshworks CRM
-            fwcrm.identify(email, new_account);
+            var identifier = document.getElementById("email_input").value;
+            fwcrm.identify(identifier, new_account);
 
             // Log form data to console for debugging
             console.log("First Name: " + firstName);
@@ -104,6 +105,15 @@
             // Optionally, you can show a message or redirect the user
             alert('Form submitted and account created in Freshworks CRM!');
         });
+    </script> -->
+
+    <script>
+        var new_account = {
+                "name": document.getElementById("account_name_input").value;
+        };
+        var identifier = document.getElementById("email_input").value;
+        fwcrm.identify(identifier, new_account);
+        
     </script>
 
 </body>
