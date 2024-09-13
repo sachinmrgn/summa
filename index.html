@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,22 +28,19 @@
         <input type="submit" id="submit_button" value="Submit">
     </form>
 
-    <script>
-        // JavaScript to prevent form submission (for testing purposes) and display data in the console
-        document.getElementById("crm-contact-form").addEventListener("submit", function(event){
-            event.preventDefault(); // Prevent actual form submission
-            console.log("First Name: " + document.getElementById("first_name_input").value);
-            console.log("Last Name: " + document.getElementById("last_name_input").value);
-            console.log("Account Name: " + document.getElementById("account_name_input").value);
-            console.log("Email: " + document.getElementById("email_input").value);
-            console.log("Mobile: " + document.getElementById("mobile_input").value);
-        });
+     <script>
+        var new_account = {
+                "name": document.getElementById("account_name_input").value;
+        };
+        var identifier = document.getElementById("email_input").value;
+        fwcrm.identify(identifier, new_account);
+        
     </script>
 
 </body>
 </html>
- -->
 
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,14 +104,7 @@
         });
     </script> -->
 
-    <script>
-        var new_account = {
-                "name": document.getElementById("account_name_input").value;
-        };
-        var identifier = document.getElementById("email_input").value;
-        fwcrm.identify(identifier, new_account);
-        
-    </script>
-
+   
+ -->
 </body>
 </html>
