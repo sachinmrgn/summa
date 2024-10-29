@@ -10,20 +10,12 @@
 
     <h2>Contact Form</h2>
     <form id="crm-contact-form" name="crm_contact_form" method="POST">
-        <label for="first_name">First Name:</label><br>
-        <input type="text" id="first_name_input" name="first_name" required><br><br>
-
-        <label for="last_name">Last Name:</label><br>
-        <input type="text" id="last_name_input" name="last_name" required><br><br>
-
-        <label for="account_name">Account Name:</label><br>
-        <input type="text" id="account_name_input" name="account_name" required><br><br>
+        
 
         <label for="email">Email:</label><br>
         <input type="email" id="email_input" name="email" required><br><br>
 
-        <label for="mobile">Mobile:</label><br>
-        <input type="tel" id="mobile_input" name="mobile" pattern="[0-9]{10}" required><br><br>
+       
 
         <input type="submit" id="submit_button" value="Submit" onclick="identify()">
     </form>
@@ -32,13 +24,9 @@
 
          function identify(){
              var new_contact = {
-	"First name": document.getElementById("first_name_input").value, //Replace with first name of the user
-	"Last name": document.getElementById("last_name_input").value, //Replace with last name of the user
+	
 	"Email": document.getElementById("email_input").value, //Replace with email of the user
-	"Mobile": document.getElementById("mobile_input").value, //Replace with a custom field
-	"company": {
-		"Name": document.getElementById("last_name_input").value
-	}
+	
 };
 var identifier = document.getElementById("email_input").value;
 fwcrm.identify(identifier, new_contact);
@@ -49,69 +37,6 @@ fwcrm.identify(identifier, new_contact);
 </body>
 </html>
 
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Contact Form</title>
-    <script src='//in.fw-cdn.com/31719983/876676.js' chat='true'></script>
-</head>
-<body>
-
-    <h2>Contact Form</h2>
-    <form id="crm-contact-form" name="crm_contact_form" method="POST">
-        <label for="first_name">First Name:</label><br>
-        <input type="text" id="first_name_input" name="first_name" required><br><br>
-
-        <label for="last_name">Last Name:</label><br>
-        <input type="text" id="last_name_input" name="last_name" required><br><br>
-
-        <label for="account_name">Account Name:</label><br>
-        <input type="text" id="account_name_input" name="account_name" required><br><br>
-
-        <label for="email">Email:</label><br>
-        <input type="email" id="email_input" name="email" required><br><br>
-
-        <label for="mobile">Mobile:</label><br>
-        <input type="tel" id="mobile_input" name="mobile" pattern="[0-9]{10}" required><br><br>
-
-        <input type="submit" id="submit_button" value="Submit">
-    </form>
-
-<!--     <script>
-        // Handle form submission
-        document.getElementById("crm-contact-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent actual form submission
-
-            // Retrieve input values
-            // var firstName = document.getElementById("first_name_input").value;
-            // var lastName = document.getElementById("last_name_input").value;
-            // var accountName = document.getElementById("account_name_input").value;
-            // var email = document.getElementById("email_input").value;
-            // var mobile = document.getElementById("mobile_input").value;
-
-            // Prepare account data for Freshworks CRM
-            var new_account = {
-                "name": document.getElementById("account_name_input").value;
-            };
-
-            // Identify user by email and send data to Freshworks CRM
-            var identifier = document.getElementById("email_input").value;
-            fwcrm.identify(identifier, new_account);
-
-            // Log form data to console for debugging
-            console.log("First Name: " + firstName);
-            console.log("Last Name: " + lastName);
-            console.log("Account Name: " + accountName);
-            console.log("Email: " + email);
-            console.log("Mobile: " + mobile);
-
-            // Optionally, you can show a message or redirect the user
-            alert('Form submitted and account created in Freshworks CRM!');
-        });
-    </script> -->
 
    
  -->
