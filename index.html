@@ -13,8 +13,8 @@
         <label for="first_name">First Name:</label><br>
         <input type="text" id="first_name_input" name="first_name" required><br><br>
 
-        <label for="last_name">Last Name:</label><br>
-        <input type="text" id="last_name_input" name="last_name" required><br><br>
+<!--         <label for="last_name">Last Name:</label><br> -->
+<!--         <input type="text" id="last_name_input" name="last_name" required><br><br> -->
 
         <label for="account_name">Account Name:</label><br>
         <input type="text" id="account_name_input" name="account_name" required><br><br>
@@ -33,7 +33,7 @@
          function identify(){
              var new_contact = {
 	"First name": document.getElementById("first_name_input").value, //Replace with first name of the user
-	
+	"Last name": document.getElementById("last_name_input").value,
 	"Email": document.getElementById("email_input").value, //Replace with email of the user
 	"Mobile": document.getElementById("mobile_input").value, //Replace with a custom field
 	"company": {
